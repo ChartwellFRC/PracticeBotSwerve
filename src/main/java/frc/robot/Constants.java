@@ -19,36 +19,6 @@ import edu.wpi.first.math.util.Units;
  */
 public final class Constants {
 
-  public static final class IntakeSubsystemConstants {
-    public static final int kIntakeMotorCanId = 2;    // SPARK Flex CAN ID
-    public static final int kConveyorMotorCanId = 4;  // SPARK Flex CAN ID
-
-    public static final class IntakeSetpoints {
-      public static final double kIntake = 0.6;
-      public static final double kExtake = -0.6;
-    }
-
-    public static final class ConveyorSetpoints {
-      public static final double kIntake = 0.7;
-      public static final double kExtake = -0.7;
-    }
-  }
-
-  public static final class ShooterSubsystemConstants {
-    public static final int kFeederMotorCanId = 5;    // SPARK Flex CAN ID
-    public static final int kFlywheelMotorCanId = 6;  // SPARK Flex CAN ID (Right)
-    public static final int kFlywheelFollowerMotorCanId = 7;  // SPARK Flex CAN ID (Left)
-
-    public static final class FeederSetpoints {
-      public static final double kFeed = 0.95;
-    }
-
-    public static final class FlywheelSetpoints {
-      public static final double kShootRpm = 5000;
-      public static final double kVelocityTolerance = 100;
-    }
-  }
-
   public static final class DriveConstants {
     // Driving Parameters - Note that these are not the maximum capable speeds of
     // the robot, rather the allowed maximum speeds
@@ -57,9 +27,9 @@ public final class Constants {
 
     // Chassis configuration
     // Distance between centers of right and left wheels on robot
-    public static final double kTrackWidth = Units.inchesToMeters(23.0);
+    public static final double kTrackWidth = Units.inchesToMeters(22.5);
     // Distance between front and back wheels on robot
-    public static final double kWheelBase = Units.inchesToMeters(23.0);
+    public static final double kWheelBase = Units.inchesToMeters(22.5);
 
     public static final SwerveDriveKinematics kDriveKinematics =
         new SwerveDriveKinematics(
@@ -75,14 +45,14 @@ public final class Constants {
     public static final double kBackRightChassisAngularOffset = Math.PI / 2;
 
     // SPARK MAX CAN IDs
-    public static final int kFrontLeftDrivingCanId = 15;
-    public static final int kRearLeftDrivingCanId = 13;
-    public static final int kFrontRightDrivingCanId = 11;
-    public static final int kRearRightDrivingCanId = 9;
+    public static final int kFrontLeftDrivingCanId = 3;
+    public static final int kRearLeftDrivingCanId = 2;
+    public static final int kFrontRightDrivingCanId = 6;
+    public static final int kRearRightDrivingCanId = 7;
 
-    public static final int kFrontLeftTurningCanId = 14;
-    public static final int kRearLeftTurningCanId = 12;
-    public static final int kFrontRightTurningCanId = 10;
+    public static final int kFrontLeftTurningCanId = 4;
+    public static final int kRearLeftTurningCanId = 1;
+    public static final int kFrontRightTurningCanId = 5;
     public static final int kRearRightTurningCanId = 8;
 
     public static final boolean kGyroReversed = false;
