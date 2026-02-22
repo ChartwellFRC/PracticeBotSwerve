@@ -91,8 +91,8 @@ public class RobotContainer {
     // Right trigger: if an AprilTag is visible, move the robot to be centered in front of it
     m_driverController.rightTrigger().whileTrue(new ManualDriveCommand(
         m_robotDrive, 
-        () -> 0.0, 
         () -> m_limelight.getTX() * -0.05, 
+        () -> m_limelight.getTY() * -0.05,  
         () -> 0.0
     ));
   }
