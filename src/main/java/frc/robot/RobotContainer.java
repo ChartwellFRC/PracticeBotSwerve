@@ -12,8 +12,9 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OIConstants;
+import frc.robot.commands.ManualDriveCommand;
 import frc.robot.subsystems.DriveSubsystem;
-
+import frc.robot.subsystems.Limelight;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -24,6 +25,7 @@ import frc.robot.subsystems.DriveSubsystem;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
+  private final Limelight m_limelight = new Limelight("limelight");
 
   // The driver's controller
   private final CommandXboxController m_driverController =
@@ -85,6 +87,14 @@ public class RobotContainer {
 
     // Y Button -> Run intake and run the shooter flywheel and feeder
     // m_driverController.y().toggleOnTrue(m_shooter.runShooterCommand().alongWith(m_intake.runIntakeCommand()));
+
+    // Right trigger: if an AprilTag is visible, move the robot to be centered in front of it
+    m_driverController.rightTrigger().whileTrue(new ManualDriveCommand(
+        m_robotDrive, 
+        () -> 0.0, 
+        () -> m_limelight.getTX() * -0.05, 
+        () -> 0.0
+    ));
   }
 
   /**
