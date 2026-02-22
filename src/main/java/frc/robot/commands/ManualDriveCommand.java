@@ -29,7 +29,7 @@ public class ManualDriveCommand extends Command {
 
     @Override
     public void execute() {
-        drive.drive(leftInput.getAsDouble(), forwardInput.getAsDouble(), rotationInput.getAsDouble(), false);
+        drive.drive(forwardInput.getAsDouble(), leftInput.getAsDouble(), rotationInput.getAsDouble(), false);
     }
 
     @Override
